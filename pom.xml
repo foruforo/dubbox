@@ -84,15 +84,16 @@
 	</profiles>
 	<properties>
 		<!-- Common libs -->
-		<spring.bom.version>3.2.9.RELEASE</spring.bom.version>
+		<!--<spring.bom.version>3.2.9.RELEASE</spring.bom.version>-->
+        <spring.bom.version>4.2.3.RELEASE</spring.bom.version>
 		<javassist_version>3.15.0-GA</javassist_version>
-		<netty_version>3.7.0.Final</netty_version>
+		<netty_version>3.10.5.Final</netty_version>
 		<mina_version>1.1.7</mina_version>
 		<grizzly_version>2.1.4</grizzly_version>
-		<httpclient_version>4.2.1</httpclient_version>
+		<httpclient_version>4.5.2</httpclient_version>
 		<hessian_lite_version>3.2.1-fixed-2</hessian_lite_version>
-		<xstream_version>1.4.1</xstream_version>
-		<fastjson_version>1.2.7</fastjson_version>
+		<xstream_version>1.4.9</xstream_version>
+		<fastjson_version>1.2.8</fastjson_version>
 		<bsf_version>3.1</bsf_version>
 		<sorcerer_version>0.8</sorcerer_version>
 		<zookeeper_version>3.4.8</zookeeper_version>
@@ -115,7 +116,7 @@
 		<webx_version>3.2.4</webx_version>
 		<jackson_version>2.6.3</jackson_version>
         <!--<jackson_version>2.3.3</jackson_version>-->
-        <commons_pool_version>1.6</commons_pool_version>
+        <commons_pool_version>2.4.2</commons_pool_version>
         <tomcat_embed_version>8.0.11</tomcat_embed_version>
 		<!-- Log libs -->
 		<slf4j_version>1.6.2</slf4j_version>
@@ -158,6 +159,7 @@
 		<maven_deploy_plugin_version>2.7</maven_deploy_plugin_version>
 
         <maven-surefire-plugin_version>2.17</maven-surefire-plugin_version>
+        <org.jboss.resteasy.version>3.0.16.Final</org.jboss.resteasy.version>
 	</properties>
 	<dependencyManagement>
 		<dependencies>
@@ -380,11 +382,16 @@
 				<artifactId>cglib-nodep</artifactId>
 				<version>${cglib_version}</version>
 			</dependency>
-			<dependency>
-				<groupId>commons-pool</groupId>
-				<artifactId>commons-pool</artifactId>
+			<!--<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-pool2</artifactId>
 				<version>${commons_pool_version}</version>
-			</dependency>
+			</dependency>-->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-pool2</artifactId>
+                <version>${commons_pool_version}</version>
+            </dependency>
             <dependency>
                 <groupId>org.apache.tomcat.embed</groupId>
                 <artifactId>tomcat-embed-core</artifactId>
@@ -405,32 +412,32 @@
             <dependency>
                 <groupId>org.jboss.resteasy</groupId>
                 <artifactId>resteasy-jaxrs</artifactId>
-                <version>3.0.7.Final</version>
+                <version>${org.jboss.resteasy.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.jboss.resteasy</groupId>
                 <artifactId>resteasy-client</artifactId>
-                <version>3.0.7.Final</version>
+                <version>${org.jboss.resteasy.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.jboss.resteasy</groupId>
                 <artifactId>resteasy-netty</artifactId>
-                <version>3.0.7.Final</version>
+                <version>${org.jboss.resteasy.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.jboss.resteasy</groupId>
                 <artifactId>resteasy-jdk-http</artifactId>
-                <version>3.0.7.Final</version>
+                <version>${org.jboss.resteasy.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.jboss.resteasy</groupId>
                 <artifactId>resteasy-jackson-provider</artifactId>
-                <version>3.0.7.Final</version>
+                <version>${org.jboss.resteasy.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.jboss.resteasy</groupId>
                 <artifactId>resteasy-jaxb-provider</artifactId>
-                <version>3.0.7.Final</version>
+                <version>${org.jboss.resteasy.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.esotericsoftware.kryo</groupId>
@@ -440,12 +447,12 @@
             <dependency>
                 <groupId>de.javakaffee</groupId>
                 <artifactId>kryo-serializers</artifactId>
-                <version>0.26</version>
+                <version>0.36</version>
             </dependency>
             <dependency>
                 <groupId>de.ruedigermoeller</groupId>
                 <artifactId>fst</artifactId>
-                <version>1.55</version>
+                <version>2.45</version>
             </dependency>
 		</dependencies>
 	</dependencyManagement>
