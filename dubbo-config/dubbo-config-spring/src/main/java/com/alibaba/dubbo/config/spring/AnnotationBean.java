@@ -51,7 +51,7 @@ import com.alibaba.dubbo.config.ReferenceConfig;
 import com.alibaba.dubbo.config.RegistryConfig;
 import com.alibaba.dubbo.config.ServiceConfig;
 import com.alibaba.dubbo.config.annotation.Reference;
-import com.alibaba.dubbo.config.annotation.Service;
+import com.alibaba.dubbo.config.annotation.DubboService;
 
 /**
  * AnnotationBean
@@ -101,7 +101,7 @@ public class AnnotationBean extends AbstractConfig implements DisposableBean, Be
                 Object scanner = scannerClass.getConstructor(new Class<?>[] {BeanDefinitionRegistry.class, boolean.class}).newInstance(new Object[] {(BeanDefinitionRegistry) beanFactory, true});
                 // add filter
                 Class<?> filterClass = ReflectUtils.forName("org.springframework.core.type.filter.AnnotationTypeFilter");
-                Object filter = filterClass.getConstructor(Class.class).newInstance(Service.class);
+                Object filter = filterClass.getConstructor(Class.class).newInstance(DubboService.class);
                 Method addIncludeFilter = scannerClass.getMethod("addIncludeFilter", ReflectUtils.forName("org.springframework.core.type.filter.TypeFilter"));
                 addIncludeFilter.invoke(scanner, filter);
                 // scan packages
@@ -140,7 +140,7 @@ public class AnnotationBean extends AbstractConfig implements DisposableBean, Be
         if(isProxyBean(bean)){
             clazz = AopUtils.getTargetClass(bean);
         }
-        Service service = clazz.getAnnotation(Service.class);
+        DubboService service = clazz.getAnnotation(DubboService.class);
         if (service != null) {
             ServiceBean<Object> serviceConfig = new ServiceBean<Object>(service);
             if (void.class.equals(service.interfaceClass())

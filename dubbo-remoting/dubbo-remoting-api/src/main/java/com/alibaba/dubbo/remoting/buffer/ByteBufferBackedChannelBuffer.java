@@ -41,7 +41,7 @@ public class ByteBufferBackedChannelBuffer extends AbstractChannelBuffer {
         writerIndex(capacity);
     }
 
-    private ByteBufferBackedChannelBuffer(ByteBufferBackedChannelBuffer buffer) {
+    public ByteBufferBackedChannelBuffer(ByteBufferBackedChannelBuffer buffer) {
         this.buffer = buffer.buffer;
         capacity = buffer.capacity;
         setIndex(buffer.readerIndex(), buffer.writerIndex());

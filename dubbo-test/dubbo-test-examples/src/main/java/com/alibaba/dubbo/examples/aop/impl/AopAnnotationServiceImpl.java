@@ -15,13 +15,13 @@
  */
 package com.alibaba.dubbo.examples.aop.impl;
 
-import com.alibaba.dubbo.config.annotation.Service;
+import com.alibaba.dubbo.config.annotation.DubboService;
 import com.alibaba.dubbo.examples.aop.api.AopAnnotationService;
 
 /**
  * @author dylan
  */
-@Service
+@DubboService
 public class AopAnnotationServiceImpl implements AopAnnotationService {
 
     public String sayHello(String name) {

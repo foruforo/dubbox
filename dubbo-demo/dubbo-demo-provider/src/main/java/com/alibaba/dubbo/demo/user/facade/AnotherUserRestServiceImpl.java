@@ -15,13 +15,24 @@
  */
 package com.alibaba.dubbo.demo.user.facade;
 
+import com.alibaba.dubbo.config.annotation.DubboService;
 import com.alibaba.dubbo.demo.user.User;
 import com.alibaba.dubbo.demo.user.UserService;
 import com.alibaba.dubbo.rpc.RpcContext;
+import com.alibaba.dubbo.rpc.protocol.rest.support.ContentType;
+
+import javax.ws.rs.Consumes;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 
 /**
  * @author lishen
  */
+@DubboService(protocol = {"rest"},validation = "true",timeout = 200,connections = 100)
+@Path("anoterUsers")
+@Consumes({MediaType.APPLICATION_JSON, MediaType.TEXT_XML})
+@Produces({ContentType.APPLICATION_JSON_UTF_8, ContentType.TEXT_XML_UTF_8})
 public class AnotherUserRestServiceImpl implements AnotherUserRestService {
 
     private UserService userService;

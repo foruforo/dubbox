@@ -36,7 +36,7 @@ import java.util.Map;
 /**
  * @author <a href="mailto:gang.lvg@alibaba-inc.com">kimi</a>
  */
-public class ServiceMethodNotFoundTest extends AbstractTest {
+public class DubboServiceMethodNotFoundTest extends AbstractTest {
 
     private URL url;
 

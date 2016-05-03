@@ -15,9 +15,11 @@
  */
 package com.alibaba.dubbo.demo.bid;
 
+import com.alibaba.dubbo.config.annotation.DubboService;
+
 import java.util.ArrayList;
 import java.util.List;
-
+@DubboService(protocol = {"dubbo"})
 public class BidServiceImpl implements BidService {
 
     public BidResponse bid(BidRequest request) {

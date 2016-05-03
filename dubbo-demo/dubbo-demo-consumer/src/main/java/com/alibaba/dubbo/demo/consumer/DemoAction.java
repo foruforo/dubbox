@@ -23,6 +23,8 @@ import com.alibaba.dubbo.demo.user.User;
 import com.alibaba.dubbo.demo.user.facade.AnotherUserRestService;
 import com.alibaba.dubbo.rpc.RpcContext;
 
+
+
 public class DemoAction {
 
     private BidService bidService;

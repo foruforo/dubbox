@@ -29,7 +29,7 @@ public class DubboDemoConsumerConfig {
 
     public static final String APPLICATION_NAME = "consumer-of-helloworld-app";
 
-    public static final String REGISTRY_ADDRESS = "zookeeper://127.0.0.1:2181";
+    public static final String REGISTRY_ADDRESS = "zookeeper://192.168.5.157:2181";
 
     public static final String ANNOTATION_PACKAGE = "com.alibaba.dubbo.demo.consumer";
 

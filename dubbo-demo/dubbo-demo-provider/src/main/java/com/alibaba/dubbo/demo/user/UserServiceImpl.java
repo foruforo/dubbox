@@ -15,11 +15,15 @@
  */
 package com.alibaba.dubbo.demo.user;
 
+import org.springframework.stereotype.Component;
+
 import java.util.concurrent.atomic.AtomicLong;
 
 /**
  * @author lishen
  */
+
+@Component
 public class UserServiceImpl implements UserService {
 
     private final AtomicLong idGen = new AtomicLong();
