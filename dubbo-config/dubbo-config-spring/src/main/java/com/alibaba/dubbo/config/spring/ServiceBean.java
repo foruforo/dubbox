@@ -111,8 +111,8 @@ public class ServiceBean<T> extends ServiceConfig<T> implements InitializingBean
             }
         }
     }
-    
-    private boolean isDelay() {
+
+    protected  boolean isDelay() {
         Integer delay = getDelay();
         ProviderConfig provider = getProvider();
         if (delay == null && provider != null) {

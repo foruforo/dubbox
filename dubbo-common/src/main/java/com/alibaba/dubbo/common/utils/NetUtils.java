@@ -74,7 +74,8 @@ public class NetUtils {
     
     public static int getAvailablePort(int port) {
     	if (port <= 0) {
-    		return getAvailablePort();
+//    		return getAvailablePort();
+            port = getAvailablePort();
     	}
     	for(int i = port; i < MAX_PORT; i ++) {
     		ServerSocket ss = null;
