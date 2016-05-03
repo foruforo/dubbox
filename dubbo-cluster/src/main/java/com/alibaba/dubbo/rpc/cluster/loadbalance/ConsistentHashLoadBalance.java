@@ -73,7 +73,9 @@ public class ConsistentHashLoadBalance extends AbstractLoadBalance {
             }
             for (Invoker<T> invoker : invokers) {
                 for (int i = 0; i < replicaNumber / 4; i++) {
-                    byte[] digest = md5(invoker.getUrl().toFullString() + i);
+//                    byte[] digest = md5(invoker.getUrl().toFullString() + i);
+                    url = invoker.getUrl();
+                    byte[] digest = md5(url.getIp()+"."+url.getPort()+"."+ i);
                     for (int h = 0; h < 4; h++) {
                         long m = hash(digest, h);
                         virtualInvokers.put(m, invoker);
@@ -97,7 +99,8 @@ public class ConsistentHashLoadBalance extends AbstractLoadBalance {
             StringBuilder buf = new StringBuilder();
             for (int i : argumentIndex) {
                 if (i >= 0 && i < args.length) {
-                    buf.append(args[i]);
+//                    buf.append(args[i]);
+                    buf.append(args[i].hashCode());
                 }
             }
             return buf.toString();
