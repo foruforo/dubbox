@@ -341,7 +341,8 @@ public class ServiceConfig<T> extends AbstractServiceConfig {
         if (port == null || port <= 0) {
             port = getRandomPort(name);
             if (port == null || port < 0) {
-                port = NetUtils.getAvailablePort(defaultPort);
+//                port = NetUtils.getAvailablePort(defaultPort);
+                port = NetUtils.getAvailablePort(-1);
                 putRandomPort(name, port);
             }
             logger.warn("Use random available port(" + port + ") for protocol " + name);

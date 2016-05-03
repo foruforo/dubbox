@@ -199,7 +199,11 @@ public class AnnotationBean extends AbstractConfig implements DisposableBean, Be
             }
             serviceConfig.setRef(bean);
             serviceConfigs.add(serviceConfig);
-            serviceConfig.export();
+//            serviceConfig.export();
+            // fix by luopeng 检测延迟暴露
+            if(!serviceConfig.isDelay()){
+                serviceConfig.export();
+                }
         }
         return bean;
     }
